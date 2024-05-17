@@ -1,0 +1,196 @@
+{% comment %}
+<!-- 
+featured_items: 
+  - image_url: 'https://source.unsplash.com/random?1'
+    title: 'Title 1'
+    url: 'https://example.com'
+-->
+{% endcomment %}
+
+{% assign brick_height = include.brick_height | default: '150px' %}
+{% assign brick_padding = include.brick_padding | default: '.5rem' %}
+{% assign brick_font-color = include.font_color | default: 'white' %}
+
+
+<masonry-grid brick_height="{{brick_height}}" brick_padding="{{brick_padding}}" font_color="{{brick_font-color}}">
+    {%- for featured_item in include.featured_items -%}
+    
+    <div image_url="{{ featured_item.image_url }}" link="http://facebook.com/HumanityStonesQuestByGaeMarieCannon">
+    <!-- <div image_url="{{ featured_item.image_url }}" link="{{ featured_item.url }}"> -->
+        <!-- {{ forloop.index }} -->
+        {{ featured_item.title }}
+    </div>
+
+    {%- endfor -%}
+</masonry-grid>
+
+
+
+
+<script>
+
+class MasonryGrid extends HTMLElement {
+    constructor() {
+        super();
+
+        // create a shadow root
+        const shadow = this.attachShadow({ mode: 'open' });
+
+        // create a style element to put the styles in
+        const style = document.createElement('style');
+        style.textContent = `
+            :host {
+                --brick-height: 150px;
+                --brick-padding: .5em;
+                --base-brick-width: 125px;
+                --brick-font-color: white;
+                --brick-font-weight: 700;
+                --brick-font-family: sans-serif;
+                --brick-font-size: 1rem;
+                --n1-brick-width: calc(var(--base-brick-width) * 1);
+                --n2-brick-width: calc(var(--base-brick-width) * 2.6);
+                --n3-brick-width: calc(var(--base-brick-width) * 1.3);
+                --n4-brick-width: calc(var(--base-brick-width) * 1.9);
+                --n5-brick-width: calc(var(--base-brick-width) * 2.2);
+                --n6-brick-width: calc(var(--base-brick-width) * 2.9);
+            }
+
+            .masonry_grid {
+                display: flex;
+                flex-wrap: wrap;
+                color: var(--brick-font-color);
+                font-weight: var(--brick-font-weight);
+                font-family: var(--brick-font-family);
+                font-size: var(--brick-font-size);
+            }
+
+            .masonry_grid div {
+                height: var(--brick-height);
+                background: rgba(255, 255, 255, 0);
+                margin: 0 0.4rem 0.4rem 0;
+                text-align: center;
+                flex: 1 0 auto;
+                background-size: cover;
+                background-position: center;
+                transition: scale .2s ease-in-out;
+            }
+
+            .masonry_grid div:hover {
+                scale: 1.1;
+            }
+
+            .masonry_grid div > a {
+                text-decoration: none;
+                color: inherit;
+                display: flex;
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                padding: var(--brick-padding);
+                box-sizing: border-box;
+                mix-blend-mode: unset;
+            }
+
+            .masonry_grid div:nth-child(6n - 5) {
+                width: var(--n1-brick-width);
+            }
+
+            .masonry_grid div:nth-child(6n-4) {
+                width: var(--n2-brick-width);
+            }
+
+            .masonry_grid div:nth-child(6n-3) {
+                width: var(--n3-brick-width);
+            }
+
+            .masonry_grid div:nth-child(6n-2) {
+                width: var(--n4-brick-width);
+            }
+
+            .masonry_grid div:nth-child(6n-1) {
+                width: var(--n5-brick-width);
+            }
+
+            .masonry_grid div:nth-child(6n) {
+                width: var(--n6-brick-width);
+            }
+        `;
+
+        // create the grid container
+        const gridContainer = document.createElement('div');
+        gridContainer.classList.add('masonry_grid');
+
+        // sppend style and grid container to shadow root
+        shadow.appendChild(style);
+        shadow.appendChild(gridContainer);
+        
+        // add bricks from the slots in the component
+        this.renderBricks();
+    }
+
+
+    renderBricks() {
+
+        // locate the grid container in the shadow root and make sure its empty
+        const gridContainer = this.shadowRoot.querySelector('.masonry_grid');
+        gridContainer.innerHTML = '';
+
+        // loop through all of the slot elements and create bricks for each one
+        Array.from(this.children).forEach((child, index) => {
+
+            const image_url = child.getAttribute('image_url');
+            const link = child.getAttribute('link');
+            const title = child.innerHTML;
+
+            const brick_content = `
+                <div class="masonry_grid-brick" style="background-image: url('${image_url}');">
+                    <a class="masonry_grid-brick-link" href="${link}">
+                        <span class="masonry_grid-brick-text">
+                            ${title}
+                        </span>
+                    </a>
+                </div>
+            `
+
+            gridContainer.insertAdjacentHTML('beforeend', brick_content);
+            
+        });
+    }
+
+    // watch the element for changes
+    static get observedAttributes() {
+        return ['brick_height','brick_padding','font_color'];
+    }
+
+    // re-render the bricks if any of the attributes change
+    attributeChangedCallback(name, oldValue, newValue) {
+        if(!newValue) {
+            return;
+        }
+
+        switch (name) {
+            case 'brick_height':
+                this.style.setProperty('--brick-height', newValue);
+            case 'brick_padding':
+                this.style.setProperty('--brick-padding', newValue);
+            case 'font_color':
+                this.style.setProperty('--brick-font-color', newValue);
+            default:
+                return
+        }
+
+        // re-render the bricks
+        this.renderBricks();
+    }
+
+    // render the bricks on first load
+    connectedCallback() {
+        this.renderBricks();
+    }
+}
+
+// define the new element so it can be used
+customElements.define('masonry-grid', MasonryGrid);
+
+</script>

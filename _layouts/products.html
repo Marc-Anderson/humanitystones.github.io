@@ -1,0 +1,103 @@
+---
+layout: page
+---
+{% comment %}
+<!-- 
+<h1>{{ page.title }}</h1>
+<img src="{{ page.image_url }}" alt="{{ page.title }}">
+<p>{{ page.slug }}</p>
+<p>{{ page.summary }}</p>
+<p>{{ page.content }}</p>
+<p>Price: {{ page.price }}</p>
+<p>{{ page.url }}</p>
+<p>{{ page.tags }}</p>
+-->
+{% endcomment %}
+
+<div class="product_content">
+
+    <div class="product_content-left">
+        <img class="product-image" src="{{ page.image_url }}" alt="">
+    </div>
+
+    <div class="product_content-right">
+
+        <div class="product-price">
+            {{ page.price }}
+        </div>
+
+        {{ page.content }}
+
+        <a class="buy-btn" href=”mailto:{{site.email}}?subject=Humanity%20Stones%20-%20Interested%20In%20{{page.title|url_escape}}” target=”_blank” rel=noopener noreferrer””>Contact</a>
+        
+    </div>
+</div>
+
+
+{% comment %}
+<!-- https://developer.paypal.com/api/nvp-soap/paypal-payments-standard/integration-guide/formbasics/ -->
+<!-- <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business={{ site.paypal_payment_email }}&currency_code=USD&amount={{page.price | remove: "$"}}&item_name={{page.title}}&return={{page.url}}?thank_you&cancel_return={{page.url}}?cancel" class="buy-btn">Buy Now</a> -->
+<script>
+//     if (window.location.href.endsWith("?thank_you")) {
+//         insertbefore("main") = "
+//         <div class="alert">
+//   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>This is an alert box.</div>
+//     }
+</script>
+{% endcomment %}
+  
+<style>
+
+.product_content h1 {
+    font-size: 2.2rem;
+}
+
+.product_content {
+    display: grid;
+}
+
+.product_content-left {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1rem;
+    justify-content: center;
+}
+
+.product_content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.product-price {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #43474D;
+}
+
+.buy-btn {
+  display: inline-block;
+  background-color: #51a055;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 12px 30px;
+  transition: all .5s;
+  text-align: center;
+}
+.buy-btn:hover {
+  background-color: #64af3d;
+}
+
+/* devices 600px and up) */
+@media only screen and (min-width: 600px) {
+    .product_content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+</style>
+  
