@@ -7,11 +7,13 @@ featured_count: 6
 ---
 
 {% assign featured_items = site.products | sample: page.featured_count %}
-{% include masonry_grid.html featured_items=featured_items brick_height='120px' brick_padding='0.4rem' font_color='rgba(241, 241, 241, 0.8)' %}
+{% include masonry_grid.html featured_items=featured_items brick_height='170px' brick_padding='0.4rem' font_color='rgba(241, 241, 241, 0.8)' %}
 
+<!-- 
 <div class="hero">
     <img class="hero-image" src="./assets/icons/site_icon.png" alt="humanity stones logo">
 </div>
+-->
 <style>
     .post-header {
         display: none;

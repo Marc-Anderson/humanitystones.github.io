@@ -27,6 +27,7 @@ domain: "humanitystones.github.io"
 url: "https://humanitystones.github.io"
 # twitter_username: jekyllrb
 # github_username:  jekyll
+icon: "./assets/icons/site_icon.png"
 
 # choose which pages to show in the header
 header_pages:
