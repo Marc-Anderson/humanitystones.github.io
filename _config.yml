@@ -31,8 +31,8 @@ icon: "./assets/icons/site_icon.png"
 
 # choose which pages to show in the header
 header_pages:
- -
-#   - about.markdown
+  - about.markdown
+  - contact.markdown
 
 # make a collection for products and make sure it outputs files for each file
 collections:

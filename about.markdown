@@ -3,16 +3,18 @@ layout: page
 title: About
 permalink: /about/
 ---
+<style>
+    .post-header {
+        display: none;
+    }
+</style>
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# Our beginning…
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Humanity Stones was born from the heart of a mother's resilience. After the devastating loss of her son, a then disabled mom found solace and purpose in the art of crochet, a skill first nurtured at the tender age of five. A lifelong innovator and designer, she turned her passion and love for family into a lifeline, crafting unique pieces to make ends meet.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Her creations, infused with love and a deep connection to her heritage, resonated with others who sought beauty and meaning in a world often filled with hardship. Inspired by this shared human experience, she envisioned a business that would celebrate our stories, our struggles, and our triumphs through custom artisan works.
 
+Humanity Stones stands as a testament to the transformative power of creativity and the enduring spirit of hope for a better world. We believe that each handcrafted piece we create carries a unique story, a connection to our shared humanity. Our mission is to bring these stories, all of our stories to life, reminding us of the beauty in both caring for and holding onto each other.
 
-[jekyll-organization]: https://github.com/jekyll
+#HumanityStones #ArtisanCreations #ArtisanGifts #crochetlove #stonework #glassworks #BeTheChange
