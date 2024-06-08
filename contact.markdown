@@ -25,7 +25,7 @@ We are always eager to connect with you! Reach out via phone, email, or text 7 d
 </div>
 
 <script type="text/javascript">
-    let emailUser="gaemarie",emailDomain="humanitystones.com",emailLink="mailto:"+emailUser+"@"+emailDomain;document.getElementById("emailButton").onclick=function(){window.location.href=emailLink};let phoneCountryCode="+1",phoneArea="845",phoneNumber="2064844",phoneLink="tel:"+phoneArea+phoneCountryCode+phoneNumber;document.getElementById("phoneButton").onclick=function(){window.location.href=phoneLink};
+    let emailUser="gaemarie",emailDomain="humanitystones.com",emailLink="mailto:"+emailUser+"@"+emailDomain;document.getElementById("emailButton").onclick=function(){window.location.href=emailLink};let phoneCountryCode="+1",phoneArea="845",phoneNumber="2064844",phoneLink="tel:"+phoneCountryCode+phoneArea+phoneNumber;document.getElementById("phoneButton").onclick=function(){window.location.href=phoneLink};
 
 </script>
 <style>
