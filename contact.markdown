@@ -13,6 +13,7 @@ permalink: /contact/
 
 To best serve our valued clientele, Humanity Stones offers flexible appointment options:
 
+- **NEW!!** Humanity Stones Private Home Parties!! Host an amazing time shopping with friends, personalizing vintage and boho-art style pieces you’ll always treasure, _and_ choose a beautiful free gift from a curated selection of our showcase, our Thank You for sharing Humanity Stones with others. 
 - Private Appointments: Available 7 days a week to accommodate your busy schedule.
 - Studio Hours: Visit our vibrant creative studio space most weekends, Friday through Sunday, from 10 am to 3 pm.
 - Monthly Pop-Up Events: Stay tuned for our exciting pop-up events where you can experience our handcrafted artistry firsthand.
